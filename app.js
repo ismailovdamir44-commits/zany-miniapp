@@ -38,11 +38,10 @@ function renderShop() {
                 <small>Алмазы · Скин · Валюта</small>
             </div>
 
-            <div>
-                🔥 Free Fire
-                <small>Алмазы · Пакеты · Подписки</small>
-            </div>
-
+            <div onclick="renderFreeFire()">
+    🔥 Free Fire
+    <small>Алмазы · Пакеты · Подписки</small>
+</div>
             <div>
                 🪖 PUBG Mobile
                 <small>UC · Royale Pass</small>
