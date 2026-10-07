@@ -381,10 +381,22 @@ function orderFreeFire(diamonds, price) {
         </button>
     `);
 }
-
 function confirmFreeFireOrder(playerId, diamonds, price) {
+    const orders = JSON.parse(localStorage.getItem('zanyOrders') || '[]');
+
+    orders.unshift({
+        game: 'Free Fire',
+        playerId: playerId,
+        diamonds: diamonds,
+        price: price,
+        status: 'Новый заказ',
+        date: new Date().toLocaleString()
+    });
+
+    localStorage.setItem('zanyOrders', JSON.stringify(orders));
+
     alert(
-        'Заказ подтверждён!\\n\\n' +
+        'Заказ принят!\\n\\n' +
         'Free Fire\\n' +
         'ID: ' + playerId + '\\n' +
         'Алмазы: ' + diamonds + '\\n' +
