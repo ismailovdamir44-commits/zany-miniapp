@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>NEXA PAY</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand"><span class="logo">N</span><span>NEXA <b>PAY</b></span></div>
+      <button class="icon-btn">♧</button>
+    </header>
+
+    <main id="content">
+      <section class="balance-card">
+        <div>
+          <small>Баланс</small>
+          <div class="balance">12 450 <span>сум</span></div>
+        </div>
+        <button class="primary" onclick="showPage('topup')">＋ Пополнить</button>
+      </section>
+
+      <section class="bonus">
+        <div class="gift">★</div>
+        <div><b>Бонус для новых пользователей</b><small>+5% к первому пополнению</small></div>
+      </section>
+
+      <div class="categories">
+        <button onclick="showPage('shop')">🎮<span>Игры</span></button>
+        <button>🎁<span>Подарочные<br>карты</span></button>
+        <button>💜<span>Подписки</span></button>
+        <button>•••<span>Прочее</span></button>
+      </div>
+
+      <section>
+        <div class="section-title">Популярные игры <span>Все ›</span></div>
+        <div class="game-grid">
+          <article class="game" onclick="showPage('mobile')">
+            <div class="game-img ml"></div><b>Mobile Legends</b><small>от 1 200 сум</small>
+          </article>
+          <article class="game"><div class="game-img ff"></div><b>Free Fire</b><small>от 3 500 сум</small></article>
+          <article class="game"><div class="game-img pubg"></div><b>PUBG Mobile</b><small>от 11 300 сум</small></article>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-title">Популярные товары <span>Все ›</span></div>
+        <div class="list-card">
+          <div>⚫ Steam <small>от 5 000 сум</small></div>
+          <div>▶ Google Play <small>от 10 000 сум</small></div>
+          <div> App Store <small>от 15 000 сум</small></div>
+        </div>
+      </section>
+    </main>
+
+    <nav class="bottom-nav">
+      <button class="active" onclick="showPage('home')">⌂<span>Главная</span></button>
+      <button onclick="showPage('shop')">▣<span>Магазин</span></button>
+      <button>◷<span>История</span></button>
+      <button>♙<span>Профиль</span></button>
+    </nav>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
