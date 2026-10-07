@@ -269,3 +269,125 @@ function confirmMobileOrder(playerId, diamonds, price) {
         'Сумма: ' + price.toLocaleString() + ' сум'
     );
 }
+function renderFreeFire() {
+    shell('Free Fire', `
+        <div class="bonus">
+            <div class="gift">🔥</div>
+            <div>
+                <b>Free Fire</b>
+                <small>Пополнение алмазами</small>
+            </div>
+        </div>
+
+        <div class="list-card" style="margin-top:12px">
+
+            <div>
+                <b>ID игрока</b>
+                <input
+                    id="ffPlayerId"
+                    type="text"
+                    inputmode="numeric"
+                    placeholder="Введите ID"
+                    style="width:100%;margin-top:10px;padding:14px;border-radius:12px;border:1px solid #27304b;background:#080d1d;color:white;font-size:16px"
+                >
+            </div>
+
+            <div>
+                💎 100 алмазов
+                <button class="primary"
+                    onclick="orderFreeFire(100, 3500)"
+                    style="float:right;padding:7px 12px">
+                    3 500 сум
+                </button>
+            </div>
+
+            <div>
+                💎 310 алмазов
+                <button class="primary"
+                    onclick="orderFreeFire(310, 9500)"
+                    style="float:right;padding:7px 12px">
+                    9 500 сум
+                </button>
+            </div>
+
+            <div>
+                💎 520 алмазов
+                <button class="primary"
+                    onclick="orderFreeFire(520, 15000)"
+                    style="float:right;padding:7px 12px">
+                    15 000 сум
+                </button>
+            </div>
+
+        </div>
+    `);
+}
+
+function orderFreeFire(diamonds, price) {
+    const playerId = document.getElementById('ffPlayerId').value.trim();
+
+    if (!playerId) {
+        alert('Введите ID игрока');
+        return;
+    }
+
+    if (!/^\\d+$/.test(playerId)) {
+        alert('ID должен содержать только цифры');
+        return;
+    }
+
+    shell('Подтверждение заказа', `
+        <div class="bonus">
+            <div class="gift">🔥</div>
+            <div>
+                <b>Free Fire</b>
+                <small>Проверьте данные перед заказом</small>
+            </div>
+        </div>
+
+        <div class="list-card" style="margin-top:12px">
+
+            <div>
+                <small>ID игрока</small>
+                <b style="display:block;margin-top:5px">${playerId}</b>
+            </div>
+
+            <div>
+                <small>Товар</small>
+                <b style="display:block;margin-top:5px">
+                    💎 ${diamonds} алмазов
+                </b>
+            </div>
+
+            <div>
+                <small>К оплате</small>
+                <b style="display:block;margin-top:5px">
+                    ${price.toLocaleString()} сум
+                </b>
+            </div>
+
+        </div>
+
+        <button class="primary"
+            onclick="confirmFreeFireOrder('${playerId}', ${diamonds}, ${price})"
+            style="width:100%;margin-top:15px">
+            Подтвердить заказ
+        </button>
+
+        <button
+            onclick="renderFreeFire()"
+            style="width:100%;margin-top:10px;padding:12px">
+            ← Вернуться
+        </button>
+    `);
+}
+
+function confirmFreeFireOrder(playerId, diamonds, price) {
+    alert(
+        'Заказ подтверждён!\\n\\n' +
+        'Free Fire\\n' +
+        'ID: ' + playerId + '\\n' +
+        'Алмазы: ' + diamonds + '\\n' +
+        'Сумма: ' + price.toLocaleString() + ' сум'
+    );
+}
