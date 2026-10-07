@@ -207,7 +207,6 @@ function renderMobile() {
         </div>
     `);
 }
-
 function orderMobile(diamonds, price) {
     const playerId = document.getElementById('mlPlayerId')?.value;
 
@@ -216,11 +215,58 @@ function orderMobile(diamonds, price) {
         return;
     }
 
+    shell('Подтверждение заказа', `
+        <div class="bonus">
+            <div class="gift">💎</div>
+            <div>
+                <b>Mobile Legends</b>
+                <small>Проверьте данные перед заказом</small>
+            </div>
+        </div>
+
+        <div class="list-card" style="margin-top:12px">
+
+            <div>
+                <small>ID игрока</small>
+                <b style="display:block;margin-top:5px">${playerId}</b>
+            </div>
+
+            <div>
+                <small>Товар</small>
+                <b style="display:block;margin-top:5px">
+                    💎 ${diamonds} алмазов
+                </b>
+            </div>
+
+            <div>
+                <small>К оплате</small>
+                <b style="display:block;margin-top:5px">
+                    ${price.toLocaleString()} сум
+                </b>
+            </div>
+
+        </div>
+
+        <button class="primary"
+            onclick="confirmMobileOrder('${playerId}', ${diamonds}, ${price})"
+            style="width:100%;margin-top:15px">
+            Подтвердить заказ
+        </button>
+
+        <button
+            onclick="renderMobile()"
+            style="width:100%;margin-top:10px;padding:12px;border-radius:12px;border:1px solid #27304b;background:#11182b;color:white">
+            ← Вернуться
+        </button>
+    `);
+}
+
+function confirmMobileOrder(playerId, diamonds, price) {
     alert(
-        'Заказ создан!\\n\\n' +
+        'Заказ подтверждён!\\n\\n' +
         'Mobile Legends\\n' +
         'ID: ' + playerId + '\\n' +
         'Алмазы: ' + diamonds + '\\n' +
-        'Цена: ' + price.toLocaleString() + ' сум'
+        'Сумма: ' + price.toLocaleString() + ' сум'
     );
 }
