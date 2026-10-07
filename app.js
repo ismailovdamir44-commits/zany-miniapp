@@ -331,7 +331,7 @@ function orderFreeFire(diamonds, price) {
         return;
     }
 
-    if (!/^\\d+$/.test(playerId)) {
+    if (!/^\d+$/.test(playerId)) {
         alert('ID должен содержать только цифры');
         return;
     }
