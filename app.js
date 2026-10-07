@@ -396,10 +396,8 @@ function confirmFreeFireOrder(playerId, diamonds, price) {
     localStorage.setItem('zanyOrders', JSON.stringify(orders));
 
     alert(
-        'Заказ принят!\\n\\n' +
-        'Free Fire\\n' +
-        'ID: ' + playerId + '\\n' +
-        'Алмазы: ' + diamonds + '\\n' +
-        'Сумма: ' + price.toLocaleString() + ' сум'
-    );
-}
+        'Заказ принят!\n\n' +
+'Free Fire\n' +
+'ID: ' + playerId + '\n' +
+'Алмазы: ' + diamonds + '\n' +
+'Сумма: ' + price.toLocaleString() + ' сум'
