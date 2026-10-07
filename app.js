@@ -155,3 +155,72 @@ function renderTopup() {
         </button>
     `);
 }
+function renderMobile() {
+    shell('Mobile Legends', `
+        <div class="bonus">
+            <div class="gift">💎</div>
+            <div>
+                <b>Mobile Legends</b>
+                <small>Пополнение алмазами</small>
+            </div>
+        </div>
+
+        <div class="list-card" style="margin-top:12px">
+
+            <div>
+                <b>ID игрока</b>
+                <input
+                    id="mlPlayerId"
+                    type="number"
+                    placeholder="Введите ID"
+                    style="width:100%;margin-top:10px;padding:12px;border-radius:10px;border:1px solid #27304b;background:#0b1020;color:white;font-size:16px"
+                >
+            </div>
+
+            <div>
+                💎 86 алмазов
+                <button class="primary"
+                    onclick="orderMobile(86, 1200)"
+                    style="float:right;padding:7px 12px">
+                    1 200 сум
+                </button>
+            </div>
+
+            <div>
+                💎 172 алмаза
+                <button class="primary"
+                    onclick="orderMobile(172, 2300)"
+                    style="float:right;padding:7px 12px">
+                    2 300 сум
+                </button>
+            </div>
+
+            <div>
+                💎 257 алмазов
+                <button class="primary"
+                    onclick="orderMobile(257, 3400)"
+                    style="float:right;padding:7px 12px">
+                    3 400 сум
+                </button>
+            </div>
+
+        </div>
+    `);
+}
+
+function orderMobile(diamonds, price) {
+    const playerId = document.getElementById('mlPlayerId')?.value;
+
+    if (!playerId) {
+        alert('Введите ID игрока');
+        return;
+    }
+
+    alert(
+        'Заказ создан!\\n\\n' +
+        'Mobile Legends\\n' +
+        'ID: ' + playerId + '\\n' +
+        'Алмазы: ' + diamonds + '\\n' +
+        'Цена: ' + price.toLocaleString() + ' сум'
+    );
+}
