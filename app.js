@@ -100,16 +100,6 @@ function renderShop() {
     <small>Алмазы · Пакеты · Подписки</small>
 </div>
 
-            <div>
-                ⭐ Telegram Stars
-                <small>Звёзды для Telegram</small>
-            </div>
-
-            <div>
-                ⚫ Steam
-                <small>Кошелёк · Игры</small>
-            </div>
-        </div>
     `);
 }
 
