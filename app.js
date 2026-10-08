@@ -318,25 +318,32 @@ function showPaymentInstructions(orderId, amount, method) {
   <small>После окончания времени заказ будет отменён</small>
 </div>
 
-<script>
-  let timeLeft = 5 * 60;
+let timeLeft = 5 * 60;
 
-  const timer = setInterval(() => {
-    const minutes = Math.floor(timeLeft / 60);
-    const seconds = timeLeft % 60;
+const timer = setInterval(() => {
+  const timerElement = document.getElementById("paymentTimer");
 
-    document.getElementById("paymentTimer").textContent =
-  String(minutes).padStart(2, "0") + ":" +
-  String(seconds).padStart(2, "0");
-  
-    timeLeft--;
+  if (!timerElement) {
+    clearInterval(timer);
+    return;
+  }
 
-    if (timeLeft < 0) {
-      clearInterval(timer);
-      document.getElementById("paymentTimer").textContent = "Время вышло";
-    }
-  }, 1000);
-  </script>
+  const minutes = Math.floor(timeLeft / 60);
+  const seconds = timeLeft % 60;
+
+  timerElement.textContent =
+    String(minutes).padStart(2, "0") + ":" +
+    String(seconds).padStart(2, "0");
+
+  if (timeLeft <= 0) {
+    clearInterval(timer);
+    timerElement.textContent = "Время вышло";
+    return;
+  }
+
+  timeLeft--;
+}, 1000);
+
 </div>
 
         <div class="list-card" style="margin-top:15px">
