@@ -64,6 +64,14 @@ function renderShop() {
     `);
 }
 
+function copyCardNumber() {
+    const card = document.getElementById('cardNumber').value;
+
+    navigator.clipboard.writeText(card).then(() => {
+        alert('Номер карты скопирован!');
+    });
+}
+
 function submitPayment(orderId, amount, method) {
     let orders = [];
 
