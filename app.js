@@ -215,11 +215,11 @@ function startTopup() {
         </div>
 
         <div class="list-card" style="margin-top:15px">
-            <div>
-                <b>💳 Способ оплаты</b>
-                <small>Выберите Uzcard, Humo, Click или Payme</small>
-            </div>
-        </div>
+    <div>
+        <b>💳 Способ оплаты</b>
+        <small>${selectedPayment}</small>
+    </div>
+</div>
 
         <button
             class="primary"
