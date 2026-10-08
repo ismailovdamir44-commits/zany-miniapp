@@ -299,7 +299,7 @@ function showPaymentInstructions(orderId, amount, method) {
 
         <button
             class="primary"
-            onclick="alert('Демо: платёж пока не подключён.')"
+            onclick="submitPayment(orderId, amount, method)"
             style="width:100%;margin-top:15px">
             Я оплатил
         </button>
