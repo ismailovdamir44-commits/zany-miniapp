@@ -369,30 +369,46 @@ function showPaymentInstructions(orderId, amount, method) {
     `);
 
       let timeLeft = 5 * 60;
+let paymentExpired = false;
 
-  const timer = setInterval(() => {
-    const timerElement = document.getElementById("paymentTimer");
+const timer = setInterval(() => {
+  const timerElement = document.getElementById("paymentTimer");
 
-    if (!timerElement) {
-      clearInterval(timer);
-      return;
-    }
+  if (!timerElement) {
+    clearInterval(timer);
+    return;
+  }
 
-    const minutes = Math.floor(timeLeft / 60);
-    const seconds = timeLeft % 60;
+  const minutes = Math.floor(timeLeft / 60);
+  const seconds = timeLeft % 60;
 
-    timerElement.textContent =
-      `${minutes}:${seconds.toString().padStart(2, "0")}`;
+  timerElement.textContent =
+    `${minutes}:${seconds.toString().padStart(2, "0")}`;
 
-    if (timeLeft <= 0) {
-      clearInterval(timer);
-      timerElement.textContent = "0:00";
+  if (timeLeft <= 0) {
+    clearInterval(timer);
+    paymentExpired = true;
 
-      alert("Время на оплату истекло. Заказ отменён.");
-    }
+    timerElement.textContent = "0:00";
 
-    timeLeft--;
-  }, 1000);
+    // Блокируем кнопку «Я оплатил»
+    const buttons = document.querySelectorAll("button");
+
+    buttons.forEach(button => {
+      if (button.textContent.includes("Я оплатил")) {
+        button.disabled = true;
+        button.style.opacity = "0.5";
+        button.style.cursor = "not-allowed";
+        button.textContent = "Время истекло";
+      }
+    });
+
+    // Показываем сообщение
+    alert("Время на оплату истекло. Заказ отменён.");
+  }
+
+  timeLeft--;
+}, 1000);
 }
 
 
