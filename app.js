@@ -309,7 +309,6 @@ function showPaymentInstructions(orderId, amount, method) {
             <div class="balance">
                 ${amount.toLocaleString()} <span>сум</span>
             </div>
-        </div>
 
         <div class="list-card" style="margin-top:15px;text-align:center;">
   <b>⏱️ Время на оплату</b>
@@ -336,7 +335,8 @@ function showPaymentInstructions(orderId, amount, method) {
       document.getElementById("paymentTimer").textContent = "Время вышло";
     }
   }, 1000);
-</script>
+  </script>
+</div>
 
         <div class="list-card" style="margin-top:15px">
     <b>💳 Оплата на карту</b>
