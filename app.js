@@ -185,12 +185,38 @@ function startTopup() {
         return;
     }
 
+    shell('Подтверждение пополнения', `
+        <div class="balance-card" style="margin-top:15px">
+            <small>Сумма пополнения</small>
+            <div class="balance">
+                ${amount.toLocaleString()} <span>сум</span>
+            </div>
+        </div>
+
+        <div class="list-card" style="margin-top:15px">
+            <div>
+                <b>💳 Способ оплаты</b>
+                <small>Выберите Uzcard, Humo, Click или Payme</small>
+            </div>
+        </div>
+
+        <button
+            class="primary"
+            onclick="confirmTopup(${amount})"
+            style="width:100%;margin-top:15px">
+            Перейти к оплате
+        </button>
+    `);
+}
+
+function confirmTopup(amount) {
     alert(
-        'Сумма пополнения: ' +
+        'Пополнение на ' +
         amount.toLocaleString() +
-        ' сум'
+        ' сум подготовлено.'
     );
 }
+
 
 function renderMobile() {
     shell('Mobile Legends', `
