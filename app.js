@@ -231,10 +231,43 @@ function startTopup() {
 }
 
 function confirmTopup(amount) {
+    const orderId = 'ZNY-' + Date.now();
+
+    shell('Оплата', `
+        <div class="balance-card" style="margin-top:15px">
+            <small>Сумма к оплате</small>
+            <div class="balance">
+                ${amount.toLocaleString()} <span>сум</span>
+            </div>
+        </div>
+
+        <div class="list-card" style="margin-top:15px">
+            <div>
+                <b>💳 Способ оплаты</b>
+                <small>${selectedPayment}</small>
+            </div>
+
+            <div style="margin-top:15px">
+                <b>🧾 Номер заказа</b>
+                <small>${orderId}</small>
+            </div>
+        </div>
+
+        <button
+            class="primary"
+            onclick="demoPayment('${orderId}', ${amount})"
+            style="width:100%;margin-top:15px">
+            Оплатить
+        </button>
+    `);
+}
+
+function demoPayment(orderId, amount) {
     alert(
-        'Пополнение на ' +
-        amount.toLocaleString() +
-        ' сум подготовлено.'
+        'Демо-оплата\\n\\n' +
+        'Заказ: ' + orderId + '\\n' +
+        'Сумма: ' + amount.toLocaleString() + ' сум\\n\\n' +
+        'Реальная оплата пока не подключена.'
     );
 }
 
