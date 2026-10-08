@@ -17,7 +17,11 @@ function showPage(page) {
     if (page === 'history') {
         renderHistory();
     }
-    
+
+    if (page === 'profile') {
+    renderProfile();
+    }
+
     if (page === 'mobile') {
         renderMobile();
     }
@@ -440,4 +444,27 @@ function renderHistory() {
     html += '</div>';
 
     shell('История', html);
+}
+function renderProfile() {
+    shell('Профиль', `
+        <div class="balance-card" style="margin-top:15px">
+            <small>Профиль ZANY</small>
+            <div class="balance">👤 Пользователь</div>
+        </div>
+
+        <div class="list-card" style="margin-top:12px">
+            <div>
+                <b>💰 Баланс</b>
+                <small>12 450 сум</small>
+            </div>
+            <div>
+                <b>🎁 Бонус</b>
+                <small>Бонус для новых пользователей</small>
+            </div>
+            <div>
+                <b>📋 Мои заказы</b>
+                <small>История покупок и пополнений</small>
+            </div>
+        </div>
+    `);
 }
