@@ -405,3 +405,39 @@ function confirmFreeFireOrder(playerId, diamonds, price) {
 'ID: ' + playerId + '\n' +
 'Алмазы: ' + diamonds + '\n' +
 'Сумма: ' + price.toLocaleString() + ' сум'
+);
+}
+function renderHistory() {
+    const orders = JSON.parse(localStorage.getItem('zanyOrders') || '[]');
+
+    if (orders.length === 0) {
+        shell('История', `
+            <div class="bonus" style="margin-top:15px">
+                <div class="gift">📋</div>
+                <div>
+                    <b>История пуста</b>
+                    <small>Здесь будут отображаться ваши заказы</small>
+                </div>
+            </div>
+        `);
+        return;
+    }
+
+    let html = '<div class="list-card" style="margin-top:12px">';
+
+    orders.forEach(order => {
+        html += `
+            <div>
+                <b>${order.game}</b>
+                <small>ID: ${order.playerId}</small>
+                <small>💎 ${order.diamonds} алмазов</small>
+                <small>${order.price.toLocaleString()} сум · ${order.status}</small>
+                <small>${order.date}</small>
+            </div>
+        `;
+    });
+
+    html += '</div>';
+
+    shell('История', html);
+}
