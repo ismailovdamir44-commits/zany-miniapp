@@ -414,6 +414,7 @@ function renderMobile() {
         </div>
     `);
 }
+
 function orderMobile(diamonds, price) {
     const playerId = document.getElementById('mlPlayerId')?.value;
 
@@ -589,6 +590,7 @@ function orderFreeFire(diamonds, price) {
         </button>
     `);
 }
+
 function confirmFreeFireOrder(playerId, diamonds, price) {
     const orders = JSON.parse(localStorage.getItem('zanyOrders') || '[]');
 
@@ -611,6 +613,7 @@ function confirmFreeFireOrder(playerId, diamonds, price) {
 'Сумма: ' + price.toLocaleString() + ' сум'
 );
 }
+
 function renderHistory() {
     const orders = JSON.parse(localStorage.getItem('zanyOrders') || '[]');
 
@@ -645,6 +648,7 @@ function renderHistory() {
 
     shell('История', html);
 }
+
 function renderProfile() {
     shell('Профиль', `
         <div class="balance-card" style="margin-top:15px">
@@ -655,7 +659,7 @@ function renderProfile() {
         <div class="list-card" style="margin-top:12px">
             <div>
                 <b>💰 Баланс</b>
-                <small>12 450 сум</small>
+                <small>0 сум</small>
             </div>
             <div>
                 <b>🎁 Бонус</b>
