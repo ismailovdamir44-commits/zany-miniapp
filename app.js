@@ -304,12 +304,38 @@ function showPaymentInstructions(orderId, amount, method) {
         </div>
 
         <div class="list-card" style="margin-top:15px">
-            <b>💳 ${method}</b>
-            <p style="margin-top:10px">
-                Заказ: ${orderId}<br>
-                Сумма: ${amount.toLocaleString()} сум
-            </p>
-        </div>
+    <b>💳 Оплата на карту</b>
+
+    <p style="margin-top:12px">
+        Номер карты:
+    </p>
+
+    <div style="display:flex;gap:8px;align-items:center">
+        <input
+            id="cardNumber"
+            value="ВСТАВЬ_НОМЕР_КАРТЫ_СЮДА"
+            readonly
+            style="flex:1;padding:12px;border-radius:10px;border:1px solid #333;background:#15182a;color:white;font-size:16px"
+        >
+
+        <button
+            class="secondary"
+            onclick="copyCardNumber()"
+            style="padding:12px"
+        >
+            📋
+        </button>
+    </div>
+
+    <p style="margin-top:10px">
+        Получатель: ВСТАВЬ_ИМЯ_СЮДА
+    </p>
+
+    <p style="margin-top:10px">
+        Заказ: ${orderId}<br>
+        Сумма: ${amount.toLocaleString()} сум
+    </p>
+</div>
 
         <div class="list-card" style="margin-top:15px">
             <b>📋 Инструкция</b>
