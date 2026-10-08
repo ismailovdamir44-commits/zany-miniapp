@@ -248,6 +248,21 @@ function confirmTopup(amount) {
                 <small>${orderId}</small>
             </div>
         </div>
+        
+<div class="list-card" style="margin-top:15px">
+    <b>📋 Инструкция</b>
+    <p style="margin-top:10px">
+        ${
+            selectedPayment === 'Uzcard'
+                ? '💳 Uzcard: после перехода к оплате будет показана инструкция для перевода.'
+                : selectedPayment === 'Humo'
+                ? '💳 Humo: после перехода к оплате будет показана инструкция для перевода.'
+                : selectedPayment === 'Visa'
+                ? '💳 Visa: после перехода к оплате будет показана инструкция для оплаты.'
+                : 'Выберите способ оплаты.'
+        }
+    </p>
+</div>
 
         <button
             class="primary"
