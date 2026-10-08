@@ -311,6 +311,33 @@ function showPaymentInstructions(orderId, amount, method) {
             </div>
         </div>
 
+        <div class="list-card" style="margin-top:15px;text-align:center;">
+  <b>⏱️ Время на оплату</b>
+  <div id="paymentTimer" style="font-size:28px;font-weight:bold;margin-top:8px;">
+    15:00
+  </div>
+  <small>После окончания времени заказ будет отменён</small>
+</div>
+
+<script>
+  let timeLeft = 5 * 60;
+
+  const timer = setInterval(() => {
+    const minutes = Math.floor(timeLeft / 60);
+    const seconds = timeLeft % 60;
+
+    document.getElementById("paymentTimer").textContent =
+      `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+
+    timeLeft--;
+
+    if (timeLeft < 0) {
+      clearInterval(timer);
+      document.getElementById("paymentTimer").textContent = "Время вышло";
+    }
+  }, 1000);
+</script>
+
         <div class="list-card" style="margin-top:15px">
     <b>💳 Оплата на карту</b>
 
