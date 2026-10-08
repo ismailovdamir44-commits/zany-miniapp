@@ -73,6 +73,30 @@ function renderShop() {
     `);
 }
 
+function submitPayment(orderId, amount, method) {
+    const orders = JSON.parse(localStorage.getItem('zanyOrders') || '[]');
+
+    orders.unshift({
+        game: 'Пополнение баланса',
+        price: amount,
+        paymentMethod: method,
+        orderId: orderId,
+        status: 'Ожидает проверки',
+        date: new Date().toLocaleString()
+    });
+
+    localStorage.setItem('zanyOrders', JSON.stringify(orders));
+
+    alert(
+        'Заявка отправлена!\n\n' +
+        'Заказ: ' + orderId + '\n' +
+        'Сумма: ' + amount.toLocaleString() + ' сум\n' +
+        'Статус: Ожидает проверки'
+    );
+
+    showPage('history');
+}
+
 function renderMobile() {
     shell('Mobile Legends', `
         <div class="bonus">
