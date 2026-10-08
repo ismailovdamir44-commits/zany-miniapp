@@ -50,19 +50,10 @@ function renderShop() {
     🔥 Free Fire
     <small>Алмазы · Пакеты · Подписки</small>
 </div>
-            <div>
-                🪖 PUBG Mobile
-                <small>UC · Royale Pass</small>
-            </div>
 
             <div>
                 ⭐ Telegram Stars
                 <small>Звёзды для Telegram</small>
-            </div>
-
-            <div>
-                ◉ Roblox
-                <small>Робуксы · Подписки</small>
             </div>
 
             <div>
@@ -74,7 +65,13 @@ function renderShop() {
 }
 
 function submitPayment(orderId, amount, method) {
-    const orders = JSON.parse(localStorage.getItem('zanyOrders') || '[]');
+    let orders = [];
+
+    try {
+        orders = JSON.parse(localStorage.getItem('zanyOrders') || '[]');
+    } catch (error) {
+        orders = [];
+    }
 
     orders.unshift({
         game: 'Пополнение баланса',
