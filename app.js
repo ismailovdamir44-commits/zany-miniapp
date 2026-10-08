@@ -14,6 +14,10 @@ function showPage(page) {
         renderShop();
     }
 
+    if (page === 'history') {
+        renderHistory();
+    }
+    
     if (page === 'mobile') {
         renderMobile();
     }
