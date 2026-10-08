@@ -264,9 +264,9 @@ function confirmTopup(amount) {
 
 function demoPayment(orderId, amount) {
     alert(
-        'Демо-оплата\\n\\n' +
-        'Заказ: ' + orderId + '\\n' +
-        'Сумма: ' + amount.toLocaleString() + ' сум\\n\\n' +
+        'Демо-оплата\n\n' +
+        'Заказ: ' + orderId + '\n' +
+        'Сумма: ' + amount.toLocaleString() + ' сум\n\n' +
         'Реальная оплата пока не подключена.'
     );
 }
