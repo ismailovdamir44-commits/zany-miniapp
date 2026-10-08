@@ -38,6 +38,55 @@ function shell(title, body) {
         </div>${body}`;
 }
 
+function renderCategory(category) {
+    if (category === 'gift') {
+        shell('Подарочные карты', `
+            <div class="list-card">
+                <div>
+                    🎁 Steam
+                    <small>Подарочные карты</small>
+                </div>
+                <div>
+                    🎁 Telegram
+                    <small>Подарочные товары</small>
+                </div>
+            </div>
+        `);
+        return;
+    }
+
+    if (category === 'subscription') {
+        shell('Подписки', `
+            <div class="list-card">
+                <div>
+                    ⭐ Telegram Stars
+                    <small>Звёзды для Telegram</small>
+                </div>
+                <div>
+                    🎟 Подписки
+                    <small>Цифровые подписки</small>
+                </div>
+            </div>
+        `);
+        return;
+    }
+
+    if (category === 'other') {
+        shell('Прочее', `
+            <div class="list-card">
+                <div>
+                    ⚫ Steam
+                    <small>Игры и кошелёк</small>
+                </div>
+                <div>
+                    📦 Другие товары
+                    <small>Скоро будут доступны</small>
+                </div>
+            </div>
+        `);
+    }
+}
+
 function renderShop() {
     shell('Магазин', `
         <div class="list-card">
