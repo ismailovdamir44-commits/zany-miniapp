@@ -321,7 +321,7 @@ function showPaymentInstructions(orderId, amount, method) {
     <div style="display:flex;gap:8px;align-items:center">
         <input
             id="cardNumber"
-            value="ВСТАВЬ_НОМЕР_КАРТЫ_СЮДА"
+            value="9860 1606 4143 8546"
             readonly
             style="flex:1;padding:12px;border-radius:10px;border:1px solid #333;background:#15182a;color:white;font-size:16px"
         >
@@ -336,7 +336,7 @@ function showPaymentInstructions(orderId, amount, method) {
     </div>
 
     <p style="margin-top:10px">
-        Получатель: ВСТАВЬ_ИМЯ_СЮДА
+        Получатель: ISMAILOV DAMIR
     </p>
 
     <p style="margin-top:10px">
