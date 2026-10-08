@@ -122,46 +122,76 @@ function renderTopup() {
         <div class="balance-card">
             <div>
                 <small>Введите сумму</small>
-                <div class="balance">
-                    50 000 <span>сум</span>
-                </div>
+                <input
+                    id="topupAmount"
+                    type="number"
+                    placeholder="50 000"
+                    min="1000"
+                    style="width:100%;margin-top:10px;padding:14px;border-radius:12px;border:1px solid #303856;background:#11182b;color:white;font-size:18px;box-sizing:border-box;"
+                >
             </div>
         </div>
 
-        <div class="section-title">
+        <div class="section-title" style="margin-top:15px">
+            Быстрый выбор
+        </div>
+
+        <div class="list-card">
+            <div onclick="setTopupAmount(10000)">10 000 сум</div>
+            <div onclick="setTopupAmount(25000)">25 000 сум</div>
+            <div onclick="setTopupAmount(50000)">50 000 сум</div>
+            <div onclick="setTopupAmount(100000)">100 000 сум</div>
+            <div onclick="setTopupAmount(0)">✏️ Своя сумма</div>
+        </div>
+
+        <div class="section-title" style="margin-top:15px">
             Выберите способ оплаты
         </div>
 
         <div class="list-card">
-
-            <div>
-                💳 Uzcard
-                <small>Комиссия 0%</small>
-            </div>
-
-            <div>
-                💳 Humo
-                <small>Комиссия 0%</small>
-            </div>
-
-            <div>
-                💳 Click
-                <small>Комиссия 0%</small>
-            </div>
-
-            <div>
-                💳 Payme
-                <small>Комиссия 0%</small>
-            </div>
-
+            <div>💳 Uzcard <small>Комиссия 0%</small></div>
+            <div>💳 Humo <small>Комиссия 0%</small></div>
+            <div>💳 Click <small>Комиссия 0%</small></div>
+            <div>💳 Payme <small>Комиссия 0%</small></div>
         </div>
 
-        <button class="primary"
+        <button
+            class="primary"
+            onclick="startTopup()"
             style="width:100%;margin-top:15px">
-            Оплатить
+            Пополнить
         </button>
     `);
 }
+
+function setTopupAmount(amount) {
+    const input = document.getElementById('topupAmount');
+
+    if (amount === 0) {
+        input.value = '';
+        input.focus();
+        return;
+    }
+
+    input.value = amount;
+}
+
+function startTopup() {
+    const input = document.getElementById('topupAmount');
+    const amount = Number(input.value);
+
+    if (!amount || amount < 1000) {
+        alert('Введите сумму не менее 1 000 сум');
+        return;
+    }
+
+    alert(
+        'Сумма пополнения: ' +
+        amount.toLocaleString() +
+        ' сум'
+    );
+}
+
 function renderMobile() {
     shell('Mobile Legends', `
         <div class="bonus">
