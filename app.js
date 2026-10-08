@@ -326,8 +326,9 @@ function showPaymentInstructions(orderId, amount, method) {
     const seconds = timeLeft % 60;
 
     document.getElementById("paymentTimer").textContent =
-      `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
-
+  String(minutes).padStart(2, "0") + ":" +
+  String(seconds).padStart(2, "0");
+  
     timeLeft--;
 
     if (timeLeft < 0) {
