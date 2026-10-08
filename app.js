@@ -149,11 +149,22 @@ function renderTopup() {
         </div>
 
         <div class="list-card">
-            <div>💳 Uzcard <small>Комиссия 0%</small></div>
-            <div>💳 Humo <small>Комиссия 0%</small></div>
-            <div>💳 Click <small>Комиссия 0%</small></div>
-            <div>💳 Payme <small>Комиссия 0%</small></div>
-        </div>
+    <div onclick="selectPayment('Uzcard')">
+        💳 Uzcard <small>Комиссия 0%</small>
+    </div>
+
+    <div onclick="selectPayment('Humo')">
+        💳 Humo <small>Комиссия 0%</small>
+    </div>
+
+    <div onclick="selectPayment('Click')">
+        💳 Click <small>Комиссия 0%</small>
+    </div>
+
+    <div onclick="selectPayment('Payme')">
+        💳 Payme <small>Комиссия 0%</small>
+    </div>
+</div>
 
         <button
             class="primary"
