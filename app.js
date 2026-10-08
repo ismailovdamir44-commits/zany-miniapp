@@ -266,20 +266,44 @@ function confirmTopup(amount) {
 
         <button
             class="primary"
-            onclick="demoPayment('${orderId}', ${amount})"
+            onclick="showPaymentInstructions('${orderId}', ${amount}, '${selectedPayment}')"
             style="width:100%;margin-top:15px">
             Оплатить
         </button>
     `);
 }
 
-function demoPayment(orderId, amount) {
-    alert(
-        'Демо-оплата\n\n' +
-        'Заказ: ' + orderId + '\n' +
-        'Сумма: ' + amount.toLocaleString() + ' сум\n\n' +
-        'Реальная оплата пока не подключена.'
-    );
+function showPaymentInstructions(orderId, amount, method) {
+    shell('Оплата', `
+        <div class="balance-card">
+            <small>Сумма к оплате</small>
+            <div class="balance">
+                ${amount.toLocaleString()} <span>сум</span>
+            </div>
+        </div>
+
+        <div class="list-card" style="margin-top:15px">
+            <b>💳 ${method}</b>
+            <p style="margin-top:10px">
+                Заказ: ${orderId}<br>
+                Сумма: ${amount.toLocaleString()} сум
+            </p>
+        </div>
+
+        <div class="list-card" style="margin-top:15px">
+            <b>📋 Инструкция</b>
+            <p style="margin-top:10px">
+                Оплата будет доступна после подключения реального платёжного сервиса.
+            </p>
+        </div>
+
+        <button
+            class="primary"
+            onclick="alert('Демо: платёж пока не подключён.')"
+            style="width:100%;margin-top:15px">
+            Я оплатил
+        </button>
+    `);
 }
 
 
