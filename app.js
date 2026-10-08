@@ -196,7 +196,11 @@ function setTopupAmount(amount) {
 function startTopup() {
     const input = document.getElementById('topupAmount');
     const amount = Number(input.value);
-
+    
+    if (!selectedPayment) {
+        alert('Сначала выберите способ оплаты');
+        return;
+}
     if (!amount || amount < 1000) {
         alert('Введите сумму не менее 1 000 сум');
         return;
