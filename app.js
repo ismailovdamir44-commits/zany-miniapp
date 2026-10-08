@@ -313,7 +313,7 @@ function showPaymentInstructions(orderId, amount, method) {
         <div class="list-card" style="margin-top:15px;text-align:center;">
   <b>⏱️ Время на оплату</b>
   <div id="paymentTimer" style="font-size:28px;font-weight:bold;margin-top:8px;">
-    15:00
+    5:00
   </div>
   <small>После окончания времени заказ будет отменён</small>
 </div>
