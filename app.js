@@ -174,7 +174,13 @@ function renderTopup() {
         </button>
     `);
 }
+let selectedPayment = '';
 
+function selectPayment(method) {
+    selectedPayment = method;
+
+    alert('Вы выбрали: ' + method);
+}
 function setTopupAmount(amount) {
     const input = document.getElementById('topupAmount');
 
