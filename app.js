@@ -156,13 +156,9 @@ function renderTopup() {
     <div onclick="selectPayment('Humo')">
         💳 Humo <small>Комиссия 0%</small>
     </div>
-
-    <div onclick="selectPayment('Click')">
-        💳 Click <small>Комиссия 0%</small>
-    </div>
-
-    <div onclick="selectPayment('Payme')">
-        💳 Payme <small>Комиссия 0%</small>
+    
+    <div onclick="selectPayment('Visa')">
+        💳 Visa <small>Комиссия 0%</small>
     </div>
 </div>
 
