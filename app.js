@@ -97,18 +97,6 @@ function submitPayment(orderId, amount, method) {
     showPage('history');
 }
 
-    localStorage.setItem('zanyOrders', JSON.stringify(orders));
-
-    alert(
-        'Заявка отправлена!\n\n' +
-        'Заказ: ' + orderId + '\n' +
-        'Сумма: ' + amount.toLocaleString() + ' сум\n' +
-        'Статус: Ожидает проверки'
-    );
-
-    showPage('history');
-}
-
 function renderMobile() {
     shell('Mobile Legends', `
         <div class="bonus">
